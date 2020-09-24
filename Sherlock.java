@@ -1,28 +1,17 @@
 import java.util.Scanner;
 public class Sherlock {
     public static String balancedSums(int[] arr, int N) {
-        int count = 0;
-        for(int i = 0; i < N; i++){
-            int tong1 = 0, tong2 = 0;
-            if(i!=N-1){
-                for(int j=i+1; j < N; j++){
-                    tong1 = tong1 + arr[j];
-                }
-            }
-            if(i!=0){
-                for(int k=i-1; k >= 0; k--){
-                    tong2 = tong2 + arr[k];
-                }
-            }
-            if(tong1==tong2){
-                count++;
-            }
+        int tong = 0, tongnho =0;
+        for(int i = 0; i < arr.length ; i++){
+            tong = tong + arr[i];
         }
-        if(count==0){
-            return "NO";
-        }else{
-            return "YES";
+        for(int i = 0; i < arr.length ; i++){
+            if (tongnho * 2 == tong - arr[i]){
+                return "YES";
+            }
+            tongnho = tongnho + arr[i];
         }
+        return "NO";
     }
 
 
